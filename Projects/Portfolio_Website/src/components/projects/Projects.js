@@ -40,8 +40,10 @@ class Projects extends Component {
                     {this.state.verilogHelpTexT}
                 </div>
                 <div className={classes.projectBox}>
-                    <p onMouseOver={() => this.setState({ javascriptHelpText: <p className = {classes.lame2}>Written in React.js</p> })}
-                        onMouseOut={() => this.setState({ javascriptHelpText: <p className={classes.lame2}>Updated Constantly!</p> })}>This website</p>
+                    <p onMouseOver={() => this.setState({ javascriptHelpText: helpText })}
+                        onMouseOut={() => this.setState({ javascriptHelpText: <p className={classes.lame2}>Updated Constantly!</p> })}
+                        onClick={() => window.open('https://github.com/mrreider/Portfolio/tree/main/Projects/Portfolio_Website', '_blank')}
+                        >This website</p>
                     {this.state.javascriptHelpText}
                 </div>
                 <button onClick={this.props.setRedirectMain}>Back</button>
