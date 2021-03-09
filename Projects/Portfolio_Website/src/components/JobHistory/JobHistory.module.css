@@ -1,0 +1,100 @@
+.Header {
+    text-align: center;
+    font-size: 30px;
+    flex-basis: 100%;
+  }
+  
+.Image {
+    height: 960px;
+    background-Image: url("../../pictures/reid.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: -1;
+    display:flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  .Image button{
+    width: 15vw;
+    border-radius: 20px;
+    background-color: #6495ED;
+    align-self: center;
+    flex-basis: 33%;
+    margin-left: 33vw;
+    font-size: 48px;
+    transition: .3s;
+}
+
+.Image button:hover {
+    opacity: 65%;
+}
+
+.projectBox {
+    border: 6px solid rgb(2, 9, 22);
+    border-radius: 20px;
+    width: 40vw;
+    font-size: 30px;
+    margin-bottom: 20px;
+    background-color: rgb(112, 96, 182);
+    text-align: center;
+    flex-basis: 30%;
+    height: 75vh;
+    opacity: 95%;
+    transition: .8s;
+}
+
+.projectBox:hover {
+    opacity: 100%;
+}
+
+.projectBox:nth-of-type(2){
+    margin-left: 3vw;
+}
+
+.projectBox:nth-of-type(4){
+    margin-right: 3vw;
+}
+
+.projectBox p {
+    font-size: 24px;
+}
+
+.projectBox p:first-of-type {
+    margin-left: none;
+    text-align: center;
+    text-decoration: underline;
+    font-weight: bold;
+    font-size: 30px;
+}
+
+.projectBox p:nth-of-type(4) {
+    font-size: 20px;
+}
+
+
+
+
+  @media (max-width: 1280px){
+      .Image {
+          width: 1280px;
+      }
+      
+  }
+
+@media (min-height: 960px){
+    .Image {
+        height:100vh;
+    }
+    .projectBox p:first-of-type {
+        font-size: 48px;
+    }
+    .projectBox p, strong {
+        font-size: 42px;
+    } 
+    .projectBox p:nth-of-type(4) {
+        font-size: 36px;
+    }
+
+}

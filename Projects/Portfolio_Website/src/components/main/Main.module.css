@@ -1,0 +1,78 @@
+.Header {
+    text-align: center;
+    padding: 10px;
+    font-size: 36px;
+  }
+  
+.Image {
+    height: 960px;
+    background-Image: url("../../pictures/reid.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: -1;
+  }
+
+  @media (max-width: 1280px){
+      .Image {
+          width: 1280px;
+      }
+  }
+
+  .Links {
+      border: 30px groove rgb(176, 224, 230, .3);
+      margin-left: 23vw;
+      width: 50%;
+      display: flex; /* Make the buttons appear below each other */
+      flex-direction: column;
+      transition: .5s;
+      padding-bottom: 5vh;
+  }
+
+  .Links:hover {
+    border: 30px groove rgb(176, 224, 230, .9);
+  }
+
+.Links p {
+    background-color: #6495ED; /* Green background */
+    border: 1px solid green; /* Green border */
+    color: white; /* White text */
+    padding: 3% 24px; /* Some padding */
+    width: 50%; /* Set a width if needed */
+    align-self: center;
+    border-radius: 6px;
+    transition: .3s;
+    font-size: 32px;
+    text-align: center;
+}
+
+.Links p:first-of-type {
+    border: none;
+    background-color: transparent;
+    color: black;
+    font-size: 54px;
+    font-weight: bold;
+    text-decoration: underline;
+    height: .5vw;
+    opacity: 95%;
+}
+
+
+
+.Links p:hover {
+
+    width:65%;
+}
+
+@media (min-height: 960px){
+    .Image {
+        height:100vh;
+    }
+
+    .Links {
+        margin-top: 6%;
+        padding-top: 5px;
+        margin-left: 24vw;
+    }
+
+}
+

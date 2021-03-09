@@ -1,0 +1,134 @@
+.Header {
+    text-align: center;
+    font-size: 30px;
+    flex-basis: 100%;
+  }
+
+  .Image button{
+    width: 15vw;
+    border-radius: 20px;
+    background-color: #6495ED;
+    align-self: center;
+    flex-basis: 33%;
+    margin-left: 33vw;
+    font-size: 48px;
+    transition: .3s;
+}
+
+.Image button:hover {
+    opacity: 65%;
+}
+
+.Image Modal {
+    flex-basis: 0%;
+}
+
+.ModalText {
+    font-weight: bold;
+    transition: .3s;
+    color: teal;
+}
+
+.ModalText:not(:last-child) {
+    padding-bottom: 7vh;
+}
+
+.ModalText:hover {
+    opacity: 57%;
+    font-size: 28px;
+
+}
+  
+.Image {
+    height: 960px;
+    background-Image: url("../../pictures/madison1.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: -1;
+    display:flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  @media (max-width: 1280px){
+      .Image {
+          width: 1280px;
+      }
+  }
+
+  .modalBack {
+    border-radius: 20px;
+    background-color: peru;
+    margin-left: 40%;
+    font-size: 24px;
+    transition: .3s;
+    width: 5vw;
+    outline: none;
+  }
+  
+  .modalBack:hover {
+      opacity: 75%;
+  }
+
+
+  .projectBox {
+    border: 6px solid peru;
+    border-radius: 20px;
+    width: 40vw;
+    background-color: thistle;
+    margin-right: 5vw;
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.projectBox:nth-of-type(even) {
+    margin-left: 5vw;
+  }
+
+  .projectBox strong {
+      font-size: 24px;
+  }
+
+  .projectBox strong:first-of-type {
+      font-size: 36px;
+      text-decoration: underline;
+  }
+
+
+  .ModalStuff {
+      font-size: 24px;
+  }
+
+  .tennisModal strong {
+      font-size: 23px;
+  }
+
+  .tennisModal {
+      font-size:20px;
+      text-align: center;
+  }
+
+@media (min-height: 960px){
+    .Image {
+        height:100vh;
+    }
+    .projectBox {
+        font-size: 32px;
+    }
+
+   .ModalText:not(:last-child) {
+       padding-bottom: 9vh;
+   }
+
+    .ModalText:hover {
+        font-size: 36px;
+    }
+
+    .modalBack {
+        margin-left: 33%;
+      }
+
+}
+
