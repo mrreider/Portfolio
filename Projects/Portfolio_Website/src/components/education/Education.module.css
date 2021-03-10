@@ -129,6 +129,10 @@
     .modalBack {
         margin-left: 33%;
       }
+    
+    .ModalStuff strong {
+        font-size: 28px;
+    }
 
 }
 

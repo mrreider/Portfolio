@@ -51,7 +51,7 @@ module UART_tb();
         end
 
         //RECIEVE DATA CHECK
-        if (rx_data != 8'b10101010) begin
+        if (rx_data !== 8'b10101010) begin
             $display("Error failed on test 1, rx_data should be 10101010 but it is %b", rx_data);
             fail = 1;
         end
@@ -70,7 +70,7 @@ module UART_tb();
         end
 
         //RECIEVE DATA CHECK
-        if (rx_data != 8'b10011000)begin
+        if (rx_data !== 8'b10011000)begin
             $display("Error failed on test 2, rx_data should be 10011000 but it is %b", rx_data);
             fail = 1;
         end
@@ -88,7 +88,7 @@ module UART_tb();
             @(posedge clk);
         end
 
-        if (rx_data != 8'b00000000)begin
+        if (rx_data !== 8'b00000000)begin
             $display("Error failed on test 3, rx_data should be 00000000 but it is %b", rx_data);
             fail = 1;
         end
@@ -106,7 +106,7 @@ module UART_tb();
             @(posedge clk);
         end
 
-        if (rx_data != 8'hFF)begin
+        if (rx_data !== 8'hFF)begin
             $display("Error failed on test 4, rx_data should be 11111111 but it is %b", rx_data);
             fail = 1;
         end
@@ -127,7 +127,7 @@ module UART_tb();
             @(posedge clk);
         end
 
-        if (rx_data != randVal) begin
+        if (rx_data !== randVal) begin
             $display("Error failed on test 5, rx_data should be %b but it is %b", randVal, rx_data);
             fail = 1;
         end
