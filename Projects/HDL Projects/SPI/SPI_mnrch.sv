@@ -4,7 +4,8 @@ module SPI_mnrch(
     input [15:0] wt_data,
 
     //OUTPUTS
-    output SS_n, SCLK, MOSI,
+    output reg SS_n, SCLK,
+    output MOSI,
     output reg done,
     output [15:0] rd_data
     );
@@ -24,10 +25,8 @@ module SPI_mnrch(
     //CONTINUOUS ASSIGNMENT 
     assign ld_SCLK = (currentState == IDLE && wrt);
     assign init = ld_SCLK; //same thing as ld_SCLK
-    assign SCLK = (currentState == IDLE) || SCLK_cnt[3];
     assign shift = (currentState == TRANSMIT && SCLK_cnt == 4'hA);
     assign done16 = bit_cnt[4];
-    assign SS_n = currentState == IDLE;
     assign rd_data = shft_reg;
     assign MOSI = shft_reg[15];
 
@@ -80,9 +79,13 @@ module SPI_mnrch(
     always_comb begin
         set_done = 1'b0;
         nxt_state = IDLE;
+        SS_n = 1'b0;
+        SCLK = SCLK_cnt[3]; //default to this value, also high when state is IDLE
         case (currentState)
             //IDLE STATE LOGIC. CHANGES AT WRT
             IDLE: begin
+                SCLK = 1'b1;
+                SS_n = 1'b1;
                 if (wrt) nxt_state = TRANSMIT;
             end
             //TRANSMIT STATE LOGIC
@@ -100,7 +103,7 @@ module SPI_mnrch(
             end
             //ILLEGAL STATE
             default: begin
-                nxt_state <= IDLE;
+                nxt_state = IDLE;
             end
         endcase
     end
