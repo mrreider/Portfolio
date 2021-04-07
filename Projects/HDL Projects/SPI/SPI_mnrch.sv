@@ -19,6 +19,9 @@ module SPI_mnrch(
     //STATE DEFINITION
     typedef enum reg[1:0] {IDLE, TRANSMIT, PULL_DOWN} state;
 
+    //FLOPPED SS_N AND SCLK
+    logic ssn_flop, sclk_flop;
+
     //STATE DEFINITIONS
     state currentState, nxt_state;
 
@@ -29,6 +32,22 @@ module SPI_mnrch(
     assign done16 = bit_cnt[4];
     assign rd_data = shft_reg;
     assign MOSI = shft_reg[15];
+
+    //FLOPPED SCLK
+    always_ff@(posedge clk, negedge rst_n) begin
+        if (!rst_n)
+            SCLK <= 1'b1;
+        else
+            SCLK <= sclk_flop;
+    end
+
+    //FLOPPED SS_N
+    always_ff@(posedge clk, negedge rst_n) begin
+        if (!rst_n)
+            SS_n <= 1'b1;
+        else
+            SS_n <= ssn_flop;
+    end
 
 
 
@@ -79,13 +98,13 @@ module SPI_mnrch(
     always_comb begin
         set_done = 1'b0;
         nxt_state = IDLE;
-        SS_n = 1'b0;
-        SCLK = SCLK_cnt[3]; //default to this value, also high when state is IDLE
+        ssn_flop = 1'b0;
+        sclk_flop = SCLK_cnt[3]; //default to this value, also high when state is IDLE
         case (currentState)
             //IDLE STATE LOGIC. CHANGES AT WRT
             IDLE: begin
-                SCLK = 1'b1;
-                SS_n = 1'b1;
+                sclk_flop = 1'b1;
+                ssn_flop = 1'b1;
                 if (wrt) nxt_state = TRANSMIT;
             end
             //TRANSMIT STATE LOGIC
