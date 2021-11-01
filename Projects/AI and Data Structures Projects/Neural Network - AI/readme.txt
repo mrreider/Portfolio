@@ -1,0 +1,1 @@
+Train a convelutional neural network on an MNIST dataset

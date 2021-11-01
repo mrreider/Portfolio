@@ -1,0 +1,1 @@
+Analyze a corpus (a collection of documents) with two possible labels and train a classifier to determine which label a query document is more likely to have.

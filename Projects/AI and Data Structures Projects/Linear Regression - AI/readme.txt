@@ -1,0 +1,1 @@
+Model to predict body fat percentage given certain features. Given CSV has body fat, along with features for 252 entries

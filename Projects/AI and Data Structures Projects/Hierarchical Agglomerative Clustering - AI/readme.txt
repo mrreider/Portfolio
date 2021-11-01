@@ -1,0 +1,1 @@
+My own implementation of SciPy's HAC function. Uses single linkage and Euclidean distance.
