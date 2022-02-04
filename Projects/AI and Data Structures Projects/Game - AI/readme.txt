@@ -1,0 +1,1 @@
+Uses a UW Madison modified version of the game Teeko, "Tekko2." Use game theory artificial intelligence to have AI beat random player in greater than 2 out of 3 matches guaranteed.
